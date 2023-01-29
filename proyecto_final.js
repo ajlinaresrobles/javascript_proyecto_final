@@ -1,17 +1,16 @@
 // convertidor de unidades
     
+// Se ingresa la propiedad
 
 let propiedad = prompt("Cuál propiedad desea convertir?\n - longitud \n - masa \n - volumen");
 
 
 while (propiedad != "salir") {
     
-if (propiedad != "longitud" && propiedad != "masa" && propiedad != "volumen") {
-    alert("No ingresó ninguna de las propiedades");
-    break
-}
+// se ingresa la cantidad
+
 let numero = prompt("Ingrese la cantidad a convertir");
-numero = parseFloat(numero);
+
 
 if (isNaN(numero)) {
     alert("La cantidad debe ser numérica");
@@ -60,9 +59,9 @@ function calc_conv_volumen(constante1, constante2, constante3, constante4, unida
                     // CONDICIONES
 
 if (propiedad == "longitud") {
-    let unidad_elegida = prompt("ingrese la unidad a convertir \n - centímetros, metros, piés o pulgadas");
+    let unidad_elegida = prompt("ingrese la unidad a convertir \n - centímetros \n - metros \n - piés \n - pulgadas");
 
-    if (unidad_elegida == "metros" && unidad_elegida == "METROS") {
+    if (unidad_elegida == "metros" || unidad_elegida == "METROS") {
         calc_conv_longitud(100, 1, 3.28, 39.37, unidad_elegida);   
     }
 
@@ -77,11 +76,14 @@ if (propiedad == "longitud") {
     if (unidad_elegida == "pulgadas") {
         calc_conv_longitud(2.54, 0.0254, 0.8333, 1, unidad_elegida);
     }
+    else {
+        alert("No ingresó ninguna de las unidades solicitadas");
+    }
 }
 
 else if (propiedad == "masa") {
     
-    unidad_elegida = prompt("ingrese la unidad a convertir \n - gramos, kilogramos, libras o toneladas");
+    unidad_elegida = prompt("ingrese la unidad a convertir \n - gramos \n - kilogramos \n - libras \n - toneladas");
     if (unidad_elegida == "gramos") {
         calc_conv_masa(1, 0.001, 0.0022, 0.000001, unidad_elegida);
     }
@@ -96,11 +98,14 @@ else if (propiedad == "masa") {
     if (unidad_elegida == "toneladas") {
         calc_conv_masa(1000000, 1000, 2204.6, 1, unidad_elegida);
     }
+    else {
+        alert("No ingresó ninguna de las unidades solicitadas");
+    }
 }
 
 else if (propiedad == "volumen") {
     
-    unidad_elegida = prompt("ingrese la unidad a convertir \n - litros, galones, onzas o metros cúbicos");
+    unidad_elegida = prompt("ingrese la unidad a convertir \n - litros \n - galones \n - onzas \n - metros cúbicos");
     if (unidad_elegida == "litros") {
         calc_conv_volumen(1, 0.2199, 33.81, 0.001, unidad_elegida);
     }
@@ -115,6 +120,13 @@ else if (propiedad == "volumen") {
     if (unidad_elegida == "metros cubicos") {
         calc_conv_volumen(1000, 219.96, 33814.02, 1, unidad_elegida);
     }
+    else {
+        alert("No ingresó ninguna de las unidades solicitadas");
+    }
+}
+else {
+    alert("No ingresó ninguna de las propiedades");
+    break
 }
 }
 propiedad = prompt("Cuál propiedad desea convertir?\n - longitud \n - masa \n - volumen \n o escriba salir para terminar");
