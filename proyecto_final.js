@@ -65,15 +65,15 @@ if (propiedad == "longitud" || propiedad == "LONGITUD") {
         calc_conv_longitud(100, 1, 3.28, 39.37, unidad_elegida);   
     }
 
-    else if (unidad_elegida == "centimetros") {
+    else if (unidad_elegida == "centimetros" || unidad_elegida == "CENTIMETROS" || unidad_elegida == "centímetros" || unidad_elegida == "CENTÍMETROS") {
         calc_conv_longitud(1, 0.01, 0.03, 0.39, unidad_elegida);
     }
 
-    else if (unidad_elegida == "pies") {
+    else if (unidad_elegida == "pies" || unidad_elegida == "piés" || unidad_elegida == "PIES" || unidad_elegida == "PIÉS") {
         calc_conv_longitud(30.48, 0.3048, 1, 12, unidad_elegida);
     }
 
-    else if (unidad_elegida == "pulgadas") {
+    else if (unidad_elegida == "pulgadas" || unidad_elegida == "PULGADAS") {
         calc_conv_longitud(2.54, 0.0254, 0.8333, 1, unidad_elegida);
     }
     else {
@@ -88,14 +88,14 @@ else if (propiedad == "masa" || propiedad == "MASA") {
         calc_conv_masa(1, 0.001, 0.0022, 0.000001, unidad_elegida);
     }
 
-    else if (unidad_elegida == "kilogramos") {
+    else if (unidad_elegida == "kilogramos" || unidad_elegida == "KILOGRAMOS") {
         calc_conv_masa(1000, 1, 2.2046, 0.001, unidad_elegida);
     }
-    else if (unidad_elegida == "libras") {
+    else if (unidad_elegida == "libras" || unidad_elegida == "LIBRAS") {
         calc_conv_masa(453.59, 0.45359, 1, 0.00045359, unidad_elegida);
     }
 
-    else if (unidad_elegida == "toneladas") {
+    else if (unidad_elegida == "toneladas" || unidad_elegida == "TONELADAS") {
         calc_conv_masa(1000000, 1000, 2204.6, 1, unidad_elegida);
     }
     else {
@@ -106,18 +106,18 @@ else if (propiedad == "masa" || propiedad == "MASA") {
 else if (propiedad == "volumen" || propiedad == "VOLUMEN") {
     
     unidad_elegida = prompt("ingrese la unidad a convertir \n - litros \n - galones \n - onzas \n - metros cúbicos");
-    if (unidad_elegida == "litros") {
+    if (unidad_elegida == "litros" || unidad_elegida == "LITROS") {
         calc_conv_volumen(1, 0.2199, 33.81, 0.001, unidad_elegida);
     }
 
-    else if (unidad_elegida == "galones") {
+    else if (unidad_elegida == "galones" || unidad_elegida == "GALONES") {
         calc_conv_volumen(4.546, 1, 153.72, 0.004546, unidad_elegida);
     }
-    else if (unidad_elegida == "onzas") {
+    else if (unidad_elegida == "onzas" || unidad_elegida == "ONZAS") {
         calc_conv_volumen(0.295, 0.00625, 1, 0.0000295, unidad_elegida);
     }
 
-    else if (unidad_elegida == "metros cubicos") {
+    else if (unidad_elegida == "metros cubicos" || unidad_elegida == "METROS CUBICOS" || unidad_elegida == "metros cúbicos" || unidad_elegida == "METROS CÚBICOS") {
         calc_conv_volumen(1000, 219.96, 33814.02, 1, unidad_elegida);
     }
     else {
@@ -125,7 +125,7 @@ else if (propiedad == "volumen" || propiedad == "VOLUMEN") {
     }
 }
 else {
-    alert("No ingresó ninguna de las propiedades");
+    alert("No ingresó ninguna de las propiedades anteriormente solicitadas");
     break
 }
 }
