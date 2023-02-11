@@ -1,9 +1,25 @@
 // convertidor de unidades
+
+// creación del objeto
     
+class Conversion{
+
+    constructor(propiedad, numero, unidad_elegida){
+
+        this.propiedad = propiedad;
+        this.numero = numero;
+        this.unidad_elegida = unidad_elegida;
+    }
+
+}
+// declaración de array vacía
+let lista_conversion = []; 
+
 // Se ingresa la propiedad
 
 let propiedad = prompt("Cuál propiedad desea convertir?\n - longitud \n - masa \n - volumen");
 
+                        // comienza el ciclo while
 
 while (propiedad != "salir") {
     
@@ -78,7 +94,12 @@ if (propiedad == "longitud" || propiedad == "LONGITUD") {
     }
     else {
         alert("No ingresó ninguna de las unidades solicitadas");
+        break
     }
+
+    let nueva_conversion = new Conversion(propiedad, numero, unidad_elegida);
+
+    lista_conversion.push(nueva_conversion);
 }
 
 else if (propiedad == "masa" || propiedad == "MASA") {
@@ -100,7 +121,11 @@ else if (propiedad == "masa" || propiedad == "MASA") {
     }
     else {
         alert("No ingresó ninguna de las unidades solicitadas");
+        break
     }
+    nueva_conversion = new Conversion(propiedad, numero, unidad_elegida);
+
+    lista_conversion.push(nueva_conversion);
 }
 
 else if (propiedad == "volumen" || propiedad == "VOLUMEN") {
@@ -122,18 +147,44 @@ else if (propiedad == "volumen" || propiedad == "VOLUMEN") {
     }
     else {
         alert("No ingresó ninguna de las unidades solicitadas");
+        break
     }
+    nueva_conversion = new Conversion(propiedad, numero, unidad_elegida);
+
+    lista_conversion.push(nueva_conversion);
 }
 else {
     alert("No ingresó ninguna de las propiedades anteriormente solicitadas");
     break
 }
 }
+
+// se ingresa nueva propiedad para evitar el bucle infinito
+
 propiedad = prompt("Cuál propiedad desea convertir?\n - longitud \n - masa \n - volumen \n o escriba salir para terminar");
 
 
 }
+                    // fin del ciclo while
 
 
+                    // función lógica para el sort
+
+function ordenar(a, b) {
+     if (a.propiedad < b.propiedad) {
+       return -1 
+     } 
+     else if (a.propiedad > b.propiedad){
+       return 1 
+     }
+     else {
+        return 0
+     }
+}
+
+
+let lista_ordenada = lista_conversion.sort(ordenar);
+
+console.log(lista_ordenada);
 
 
