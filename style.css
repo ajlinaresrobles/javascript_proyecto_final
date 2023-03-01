@@ -1,0 +1,70 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: radial-gradient(circle farthest-corner at center, rgb(242, 233, 225) 35%, rgb(242, 246, 249) 65%, rgb(242, 255, 255) 100%);
+    
+  }
+  section{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+h1{
+  text-align: center;
+}
+  footer {
+    height: 180px;
+    background: linear-gradient(to left, rgba(28, 20, 13, 0.9) 10%, rgb(28, 20, 13) 90%, rgba(28, 20, 13, 0.9) 100%);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    font-family: "Source Sans Pro", sans-serif;
+  }
+  footer div {
+    margin-top: 30px;
+  }
+  footer div ul {
+    list-style: none;
+  }
+  footer div ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  footer div ul li a:hover {
+    color: #cbe86b;
+    transition: 0.2s;
+  }
+  footer div ul p {
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 576px) {
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    height: auto;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+}
+.cajas_input{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.output{
+  color:red;
+  text-align: center;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+}
+a img{
+  height: 50px;
+  width: 60px;
+}

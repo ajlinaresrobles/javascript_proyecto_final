@@ -4,19 +4,219 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/df359e4437.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>Mapocho Cambios: Money Exchange</title>
 </head>
 <body>
+    <header>
+    <nav class="navbar bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./index.html"><img src="./logo_mapocho.png" alt="logo_mapocho"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Cambios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Regístrate</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Iniciar Sesión</a>
+              </li>
 
-    <h1>Proyecto Final Alejandro Linares</h1>
-    <p> Este es un convertidor de unidades de longitud, masa y volumen</p>
-    <p>Se ingresa la propiedad, la cantidad y la unidad de medida</p>
-    <p>para luego mostrar los resultados de las equivalencias en un mensaje "alert"</p>
-    <p>se creó un array de objetos con los datos ingresados </p>
-    <p>se creó un método de arreglo para ordenar el array de acuerdo a la propiedad</p>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section>
+
+    <h1>Bienvenido a Mapocho Cambios</h1>
+
+      <div class="parrafo_y_tabla">
+        <div class="parrafo">
+          <div class="parrafo1">
+        <h6>Money Exchange</h6>
+        <p>Compramos y vendemos una gran variedad de divisas internacionales, la activa participación que tenemos en el Mercado Cambiario y el sistema de cotización en tiempo real con el que contamos, nos permite valorar mucho más su moneda, otorgando la mejor tasa de cambio del mercado.</p>
+          </div>
+          <div class="parrafo2">
+        <h6>Transparencia</h6>
+        <p>Publicamos nuestros precios en tiempo real. En un mercado variable es importante tenerlos actualizados. ¿No encuentra la divisa? escríbanos.</p>
+          </div>
+          <div class="parrafo3">
+        <h6>Calculadora en línea</h6> 
+        <p>Ponemos a su disposición una potente herramienta de conversión de divisas, cuyos valores se actualizan al segundo.</p>
+        </div> 
+        </div>
+
+        <div class="tabla">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Divisa</th>
+                <th scope="col">Compramos</th>
+                <th scope="col">Vendemos</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">DOLAR EEUU</th>
+                <td>810</td>
+                <td>830</td>
+                
+              </tr>
+              <tr>
+                <th scope="row">EURO</th>
+                <td>860</td>
+                <td>885</td>
+                
+              </tr>
+              <tr>
+                <th scope="row">Peso Argentino</th>
+                <td>2.10</td>
+                <td>2.50</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <td>Mi Moneda: Pesos Chilenos</td>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+
+    <div class="cajas_input">
+    <form class="row g-1">
+      
+      <div class="col-md-4">
+        <label for="inputCity" class="form-label">Qué monto deseas cambiar?</label>
+        <input type="text" class="form-control" id="input_cantidad" placeholder="Cantidad">
+      </div>
+      <div class="col-md-4">
+        <label for="moneda_desde" class="form-label">Qué divisa tienes?:</label>
+        <select id="moneda_desde" class="form-select">
+          <option selected>Pesos Chilenos (CLP)</option>
+          <option>Dolares Americanos ($)</option>
+          <option>Euros (€)</option>
+          <option>Pesos Argentinos (ARS)</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="moneda_hasta" class="form-label">Qué divisa quieres?:</label>
+        <select id="moneda_hasta" class="form-select">
+          <option selected>Dolares Americanos ($)</option>
+          <option>Pesos Chilenos (CLP)</option>
+          <option>Euros (€)</option>
+          <option>Pesos Argentinos (ARS)</option>
+          
+        </select>
+      </div>
+        </form>
+
+        <div class="col-md-2">
+          <label for="inputState" class="form-label">Conversión</label>
+          <br>
+          <button class="btn btn-primary" id="btn_conversion">Conversión</button>
+        </div>
+
+    <div id="output" class="output">
+
+    </div>
+  </div>
+
+  
+
+
+  <div class="cajas_input">
+    <h2>Iniciar Sesión</h2>
+   <form>
+      <div class="mb-3">
+        <label for="email_login" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="email_login" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text"></div>
+      </div>
+      <div class="mb-3">
+        <label for="pass_login"eI class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="pass_login">
+      </div>
+      <button type="" class="btn btn-primary" id="btn_login">Iniciar Sesión</button>
+    </form>
+  </div>
+
+
+ 
+
+    <div class="cajas_input">
+      <h2>Regístrate</h2>
+
+    <form class="row g-3">
+      <div class="col-md-6">
+        <label for="email_usuario" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="email_usuario">
+      </div>
+      <div class="col-md-6">
+        <label for="pass_usuario" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="pass_usuario">
+      </div>
+      <div class="col-md-5">
+        <label for="nombre_usuario" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre_usuario" placeholder="">
+      </div>
+      <div class="col-md-5">
+        <label for="apellido_usuario" class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="apellido_usuario" placeholder="">
+      </div>
+      <div class="col-md-2">
+        <label for="edad_usuario" class="form-label">Edad</label>
+        <input type="text" class="form-control" id="edad_usuario">
+      </div>
+      
+    </form>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" id="btn_registro">Registrarse</button>
+    </div>
+  </div>
+
+  </section>
+
+  <footer>
+    <div >
+        <ul><p>Corporativo</p>
+            <li><a href="">Quienes Somos</a></li>
+            <li><a href="">Nuestros Servicios</a></li> 
+        </ul>
+    </div>
+    <div >
+        <ul><p>Servicio al Cliente</p>
+            <li><a href="">Contactanos</a></li>
+            <li><a href="">Preguntas Frecuentes</a></li>
+            <li><a href="">Política de Privacidad</a></li>
+            <li><a href="">Términos y Condiciones</a></li>
+        </ul>
+    </div>
+    <div data-aos="zoom-in">
+        <ul><p>Redes Sociales</p>
+        <li><a href=""><i class="fa-brands fa-twitter"></i>   Twitter</a></li>
+        <li><a href=""><i class="fa-brands fa-facebook"></i>   Facebook</a></li>
+        <li><a href=""><i class="fa-brands fa-instagram"></i>   Instagram</a></li>
+        </ul>
+    </div>
     
+</footer>
+<script src="sweetalert2.all.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+</script>
     <script src="./proyecto_final.js">
-        
     </script>
+   
 </body>
 </html>
