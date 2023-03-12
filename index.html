@@ -22,13 +22,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Cambios</a>
+                <a class="nav-link active" aria-current="page" href="#cotiz">Cambios</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Regístrate</a>
+                <a class="nav-link active" aria-current="page" href="#registrate">Regístrate</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Iniciar Sesión</a>
+                <a class="nav-link active" aria-current="page" href="#iniciar_sesion">Iniciar Sesión</a>
               </li>
 
             </ul>
@@ -72,20 +72,20 @@
             <tbody>
               <tr>
                 <th scope="row">DOLAR EEUU</th>
-                <td>810</td>
-                <td>830</td>
+                <td id="usd_to_clp" ></td>
+                <td id="clp_to_usd" ></td>
                 
               </tr>
               <tr>
                 <th scope="row">EURO</th>
-                <td>860</td>
-                <td>885</td>
+                <td id="eur_to_clp"></td>
+                <td id="clp_to_eur"></td>
                 
               </tr>
               <tr>
                 <th scope="row">Peso Argentino</th>
-                <td>2.10</td>
-                <td>2.50</td>
+                <td id="ars_to_clp"></td>
+                <td id="clp_to_ars"></td>
               </tr>
             </tbody>
             <tfoot>
@@ -139,7 +139,7 @@
 
 
   <div class="cajas_input">
-    <h2>Iniciar Sesión</h2>
+    <h2 id="iniciar_sesion">Iniciar Sesión</h2>
    <form>
       <div class="mb-3">
         <label for="email_login" class="form-label">Correo Electrónico</label>
@@ -158,7 +158,7 @@
  
 
     <div class="cajas_input">
-      <h2>Regístrate</h2>
+      <h2 id="registrate">Regístrate</h2>
 
     <form class="row g-3">
       <div class="col-md-6">

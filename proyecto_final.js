@@ -1,11 +1,45 @@
 
-
+                //  Se crea el párrafo del mensaje del resultado del cálculo
 let mensaje = document.createElement("p");
 
+                // Se Consume el fetch
+let cotiz = document.getElementById("cotiz");
+let usd_to_clp = document.getElementById("usd_to_clp");
+let clp_to_usd = document.getElementById("clp_to_usd");
 
+
+fetch("https://v6.exchangerate-api.com/v6/a1a2cba5385513c65c86422c/latest/USD")
+        .then(response => response.json())
+        .then(data => {
+                        cotiz.innerHTML = `Cotización al momento, 1 dolar = ${data.conversion_rates.CLP} CLP`
+                        usd_to_clp.innerHTML = ((data.conversion_rates.CLP -10).toFixed(2))
+                        clp_to_usd.innerHTML = ((data.conversion_rates.CLP +10).toFixed(2))
+        });
+
+let eur_to_clp = document.getElementById("eur_to_clp");
+let clp_to_eur = document.getElementById("clp_to_eur");
+        
+fetch("https://v6.exchangerate-api.com/v6/a1a2cba5385513c65c86422c/latest/EUR")
+        .then(response => response.json())
+         .then(data => {
+                         eur_to_clp.innerHTML = ((data.conversion_rates.CLP -12.5).toFixed(2))
+                         clp_to_eur.innerHTML = ((data.conversion_rates.CLP +12.5).toFixed(2))
+                });  
+        
+let ars_to_clp = document.getElementById("ars_to_clp");
+let clp_to_ars = document.getElementById("clp_to_ars");
+                
+fetch("https://v6.exchangerate-api.com/v6/a1a2cba5385513c65c86422c/latest/ARS")
+        .then(response => response.json())
+        .then(data => {
+                        ars_to_clp.innerHTML = ((data.conversion_rates.CLP -0.2).toFixed(2))
+                        clp_to_ars.innerHTML = ((data.conversion_rates.CLP +0.2).toFixed(2))
+                 }); 
+
+                    // Función de botón de conversión
 
 function conv_moneda() {
-
+   
     let cantidad = document.getElementById("input_cantidad");
     let moneda_desde = document.getElementById("moneda_desde");
     let moneda_hasta = document.getElementById("moneda_hasta");
@@ -25,25 +59,25 @@ function conv_moneda() {
    
     if (moneda_desde.value == "Dolares Americanos ($)") {
         if (moneda_hasta.value == "Dolares Americanos ($)") {calculo(1)}
-        else if(moneda_hasta.value == "Pesos Chilenos (CLP)") {calculo(810)}
+        else if(moneda_hasta.value == "Pesos Chilenos (CLP)") {calculo(usd_to_clp.innerHTML)}
         else if(moneda_hasta.value == "Euros (€)") {calculo(0.915254)}
         else if(moneda_hasta.value == "Pesos Argentinos (ARS)") {calculo(337.5)};
     }
     if (moneda_desde.value == "Pesos Chilenos (CLP)") {
-        if (moneda_hasta.value == "Dolares Americanos ($)") {calculo(0.001205)}
+        if (moneda_hasta.value == "Dolares Americanos ($)") {calculo(1/clp_to_usd.innerHTML)}
         else if(moneda_hasta.value == "Pesos Chilenos (CLP)") {calculo(1)}
-        else if(moneda_hasta.value == "Euros (€)") {calculo(0.00113)}
-        else if(moneda_hasta.value == "Pesos Argentinos (ARS)") {calculo(0.41667)};
+        else if(moneda_hasta.value == "Euros (€)") {calculo(1/clp_to_eur.innerHTML)}
+        else if(moneda_hasta.value == "Pesos Argentinos (ARS)") {calculo(1/clp_to_ars.innerHTML)};
     }
     if (moneda_desde.value == "Euros (€)") {
         if (moneda_hasta.value == "Dolares Americanos ($)") {calculo(1.036145)}
-        else if(moneda_hasta.value == "Pesos Chilenos (CLP)") {calculo(860)}
+        else if(moneda_hasta.value == "Pesos Chilenos (CLP)") {calculo(eur_to_clp.innerHTML)}
         else if(moneda_hasta.value == "Euros (€)") {calculo(1)}
         else if(moneda_hasta.value == "Pesos Argentinos (ARS)") {calculo(358.3333)};
     }
     if (moneda_desde.value == "Pesos Argentinos (ARS)") {
         if (moneda_hasta.value == "Dolares Americanos ($)") {calculo(0.00253)}
-        else if(moneda_hasta.value == "Pesos Chilenos (CLP)") {calculo(2.1)}
+        else if(moneda_hasta.value == "Pesos Chilenos (CLP)") {calculo(ars_to_clp.innerHTML)}
         else if(moneda_hasta.value == "Euros (€)") {calculo(0.002373)}
         else if(moneda_hasta.value == "Pesos Argentinos (ARS)") {calculo(1)};
     }
@@ -56,7 +90,7 @@ let btn_conversion = document.getElementById("btn_conversion");
 btn_conversion.addEventListener("click", conv_moneda);
 
 
-
+            // Se crea la clase para el registro de la alta de usuarios
 
 class Usuario{
 
@@ -76,7 +110,7 @@ class Usuario{
     let recuperando_usuarios = localStorage.getItem("arreglo_JSON");
     lista_usuarios = JSON.parse(recuperando_usuarios);
 
-
+            // Función para el botón registrarse
 function alta_usuario() {
     
     let email_usuario = document.getElementById("email_usuario");
@@ -137,8 +171,8 @@ function alta_usuario() {
         }).showToast();
     }
     
-
 }
+                // Función para en botón iniciar sesión
 
 function login_usuario() {
    
@@ -171,14 +205,7 @@ let btn_login = document.getElementById("btn_login");
 btn_login.addEventListener("click", login_usuario);
 
 
-let cotiz = document.getElementById("cotiz");
 
 
-fetch("https://v6.exchangerate-api.com/v6/a1a2cba5385513c65c86422c/latest/USD")
-        .then(response => response.json())
-        .then(data => {
-                        cotiz.innerHTML = `Cotización al momento, 1 dolar = ${data.conversion_rates.CLP} CLP`
-        })
 
-        
-    
+
