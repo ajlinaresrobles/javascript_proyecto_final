@@ -17,6 +17,12 @@ function conv_moneda() {
         mensaje.innerHTML =`Recibirás ${resultado.toFixed(2)} ${moneda_hasta.value}`;
     };
    
+   if (isNaN(cantidad.value)) {
+    mensaje.innerHTML =`La Cantidad debe ser numérica`;
+   } 
+   else {
+    
+   
     if (moneda_desde.value == "Dolares Americanos ($)") {
         if (moneda_hasta.value == "Dolares Americanos ($)") {calculo(1)}
         else if(moneda_hasta.value == "Pesos Chilenos (CLP)") {calculo(810)}
@@ -41,7 +47,7 @@ function conv_moneda() {
         else if(moneda_hasta.value == "Euros (€)") {calculo(0.002373)}
         else if(moneda_hasta.value == "Pesos Argentinos (ARS)") {calculo(1)};
     }
-
+    }
     output.append(mensaje);
 }
 
@@ -163,3 +169,16 @@ btn_registro.addEventListener("click", alta_usuario);
 let btn_login = document.getElementById("btn_login");
 
 btn_login.addEventListener("click", login_usuario);
+
+
+let cotiz = document.getElementById("cotiz");
+
+
+fetch("https://v6.exchangerate-api.com/v6/a1a2cba5385513c65c86422c/latest/USD")
+        .then(response => response.json())
+        .then(data => {
+                        cotiz.innerHTML = `Cotización al momento, 1 dolar = ${data.conversion_rates.CLP} CLP`
+        })
+
+        
+    
